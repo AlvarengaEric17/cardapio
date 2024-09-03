@@ -54,6 +54,7 @@ function addToCart(name, price) {
         })
     }
 
+    updateCartModal()
 
 }
 
@@ -63,25 +64,23 @@ function updateCartModal() {
     let total = 0
 
     cart.forEach(item => {
-        const cartItemsElement = document.createElement("div")
+        const cartItemElement = document.createElement("div")
 
-        cartItemsElement.innerHTML = `
+        cartItemElement.innerHTML = `
         <div>
             <div>
                 <p>${item.name}</p>
-                <p>${item.quantity}</p>
-                <p>${item.price}</p>
+                <p>Quantidade: ${item.quantity}</p>
+                <p>Preço: $${item.price.toFixed(2)}</p>
             </div>
-
             <div>
                 <button>
                     Remover
                 </button>
             </div>
-            
         </div>
-        `
+        `;
 
-        cartItemsContainer.appendChild(cartItemsElement)
+        cartItemsContainer.appendChild(cartItemElement)
     })
 }
